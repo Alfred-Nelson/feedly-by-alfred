@@ -8,9 +8,9 @@ const Container = ({ children }) => {
         <div>
             <Header
                 actionBlock={<HeaderFacilities />}
-                title="Layouts"
+                title="Feed.ly"
             />
-            <div className="mt-5 my-4 py-4">
+            <div className="mt-20 mx-20 px-20">
                 {children}
             </div>
         </div>

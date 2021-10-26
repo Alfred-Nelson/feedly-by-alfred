@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from '../api/NewsApi'
 import useCatagories from '../constants/useCatagories'
-import { Typography } from "@bigbinary/neetoui/v2";
+import NewsBoard from '../NewsBoard.js'
+
 
 const Feeds = () => {
 
@@ -9,7 +10,6 @@ const Feeds = () => {
     const [ state ] = useCatagories()
 
     const fetchDetails = async (catagory) => {
-        console.log("yes")
         const response = await getData(catagory)
         const necessaryNews = response.data.data.slice(0,5)
         setNews(prev => prev.concat({ catagory, data: necessaryNews }))
@@ -17,24 +17,18 @@ const Feeds = () => {
 
     useEffect(() => {
         Object.keys(state).forEach((catagory) => {
-            if(state[catagory] == true){
+            if(state[catagory] === true){
                 fetchDetails(catagory)
             }
         })
-        return () => {}
+        return () => {setNews([])}
     },[])
-
-    useEffect(() => {
-        console.log(news)
-    }, [news])
 
     return (
         <div>
             
                 {news.map((eachCatagory) => {
-                    return eachCatagory.data.map((eachNews) => {
-                        return <Typography key={eachNews.id}>{eachNews.title}</Typography>
-                    })
+                   return <NewsBoard news= {eachCatagory} key = {eachCatagory.catagory}/>
                 })}
                 
         </div>
