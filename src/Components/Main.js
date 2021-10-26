@@ -1,11 +1,12 @@
 import React from 'react'
 import Container from './Container'
+import Feeds from './Feeds'
 
 const Main = () => {
     return (
         <div>
             <Container>
-                Hello world
+                <Feeds />
             </Container>
         </div>
     )

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Header } from "@bigbinary/neetoui/v2/layouts";
-import { Typography } from "@bigbinary/neetoui/v2";
 import HeaderFacilities from './HeaderFacilities';
 
 
