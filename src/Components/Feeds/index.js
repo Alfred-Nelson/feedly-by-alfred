@@ -26,11 +26,9 @@ const Feeds = () => {
 
     return (
         <div>
-            
                 {news.map((eachCatagory) => {
                    return <NewsBoard news= {eachCatagory} key = {eachCatagory.catagory}/>
-                })}
-                
+                })} 
         </div>
     )
 }
