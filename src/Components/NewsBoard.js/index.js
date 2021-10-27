@@ -7,10 +7,6 @@ import NewsList from './NewsList';
 
 const NewsBoard = ({ news }) => {
 
-    useEffect(() => {
-        console.log(news)
-    },[])
-
     return (
         <div className="flex flex-col items-start mt-12">
             <Typography style="h2" className="mb-10 mt-5">{capitalize(news.catagory)} News</Typography>

@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 
 const mainCatagories = {
     all : false,
@@ -15,7 +15,7 @@ const mainCatagories = {
     automobile : false
 }
 
-const ACTIONS = {
+ export const ACTIONS = {
     TOGGLE : 'toggle',
     GETMAIN : 'getselected',
     GETNONMAIN : 'getnotselected'
@@ -28,12 +28,19 @@ const useCatagories = () => {
     const reducer = (state, action) => {
         switch(action.type){
             case ACTIONS.TOGGLE :
-                state[action.payload.name] = state[action.payload.name] ? false : true
-                return { ...state }
+                const hel = state[action.payload.name] ? false : true
+                return { ...state, [action.payload.name] : hel }
+            default:
+                return(state)
         }
     }
 
     const [state, dispatch] = useReducer(reducer, mainCatagories)
+
+    useEffect(() => {
+        console.log("from here")
+        console.log(state)
+    },[state])
 
     return [state, dispatch]
 }

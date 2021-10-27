@@ -3,8 +3,6 @@ import { Typography } from "@bigbinary/neetoui/v2";
 
 const NewsList = ({ news }) => {
 
-    useEffect(() => console.log("yes") , [])
-
     return (
         <div className="flex w-5/12 justify-between m-2 items-center font-light" >
             <img src={news.imageUrl} className="w-28 h-28 mr-3" />
