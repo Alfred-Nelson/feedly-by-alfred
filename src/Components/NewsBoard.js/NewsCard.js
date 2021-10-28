@@ -1,7 +1,10 @@
 import React from 'react'
 import { Typography } from "@bigbinary/neetoui/v2";
+import { useSlugExtract } from '../constants/useSlug';
+import { Link } from 'react-router-dom';
 
-const NewsCard = ({ news }) => {
+const NewsCard = ({ news , catagory}) => {
+    const slug = useSlugExtract(news.url)
     return (
         <div className="w-full flex justify-between" >
 
@@ -22,7 +25,7 @@ const NewsCard = ({ news }) => {
                 </Typography>
 
                 <div className="flex justify-start mt-2">
-                    <a href="#" className="text-blue-400">Read more..</a>
+                    <Link to={`/article/${catagory}/${slug}`} className="text-blue-400">Read more..</Link>
                 </div>
 
             </div>
