@@ -3,7 +3,7 @@ import { Header } from "@bigbinary/neetoui/v2/layouts";
 import { Pane } from "@bigbinary/neetoui/v2";
 import { Typography } from "@bigbinary/neetoui/v2";
 import { Checkbox, Button } from "@bigbinary/neetoui/v2";
-import { catagories } from '../constants/Catagories';
+import { catagories } from '../../constants/Catagories';
 import { CatagoryContext } from '../Main';
 import { Check } from "@bigbinary/neeto-icons";
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ const Container = ({ children }) => {
 
     useEffect(() => {
         setManageFilter(state)
-    },[]) 
+    },[state]) 
 
     useEffect(() => {
         if(showFilterPane === false){
@@ -35,7 +35,7 @@ const Container = ({ children }) => {
                 title="Feed.ly"
                 className = "border-b-2"
             />
-            <div className="mt-20 mx-20 px-20">
+            <div className="my-20 mx-20 px-20 ">
                 {children}
                 <Pane isOpen={showFilterPane} onClose={() => setFilterPane(false)}>
                     <Pane.Header>

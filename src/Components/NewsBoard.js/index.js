@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Typography } from "@bigbinary/neetoui/v2";
-import { capitalize } from '../helper/capitalize';
+import { capitalize } from '../../utils/capitalize';
 import NewsCard from './NewsCard';
-import Line from '../helper/Line'
+import Line from '../common/helper/Line'
 import NewsList from './NewsList';
 
 const NewsBoard = ({ news }) => {

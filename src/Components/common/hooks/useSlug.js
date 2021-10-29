@@ -1,5 +1,5 @@
 import React ,{ useState,useEffect } from 'react'
-import { getData } from '../api/NewsApi'
+import { getData } from '../../../api/NewsApi'
 
 export const useSlugExtract = (url) => {
     return url.slice(33)

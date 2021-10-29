@@ -1,14 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { getData } from '../api/NewsApi'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
+import { debounce } from 'lodash';
+import { getData } from '../../api/NewsApi'
 import { CatagoryContext } from '../Main'
+import {Typography, Tag} from  "@bigbinary/neetoui/v2";
+import { Redirect } from 'react-router';
 import NewsBoard from '../NewsBoard.js'
-import {Typography} from  "@bigbinary/neetoui/v2";
-
 
 const Feeds = () => {
 
     const [ news , setNews ] = useState([])
-    const { state } = useContext(CatagoryContext)
+    const { state, setState } = useContext(CatagoryContext)
     const [loading , setLoading] = useState(true)
 
     const fetchDetails = async (catagory) => {
@@ -18,8 +19,7 @@ const Feeds = () => {
             setLoading(false)
     }
 
-    const fetchNews = (state) => {
-        setNews([])
+    const fetchNews = () => {
         Object.keys(state).forEach((catagory) => {
             if(state[catagory] === true){
                 console.log("catagory = ",catagory)
@@ -29,16 +29,32 @@ const Feeds = () => {
     }
 
     useEffect(() => {
-        fetchNews(state)
+        setLoading(true)
+        setNews(prev => prev.filter((_) => false))
+        fetchNews()
         return () => {setNews([])}
     },[state])
 
+
+
     return (
         <div>
-                {news.map((eachCatagory) => {
-                   return <NewsBoard news= {eachCatagory} key = {eachCatagory.catagory}/>
-                })} 
-                <Typography>{loading ? "Loading..." : null} </Typography>
+            {!Object.values(state).includes(true) ? <Redirect to="/no-news" /> : null}
+            <div className="flex justify-start">
+            {!loading && Object.keys(state).filter((val)=> state[val])
+                .map((catagory) =><Tag 
+                                    label={catagory} 
+                                    style="large" 
+                                    onClose={()=>
+                                        setState(prev => ({...prev, [catagory]:false}))
+                                    } 
+                                    className="mx-5"
+                                    />)}
+            </div>
+            {news.map((eachCatagory) => {
+                return <NewsBoard news= {eachCatagory} key = {eachCatagory.catagory}/>
+            })} 
+            <Typography className="mt-20">{loading ? "Loading..." : null} </Typography>
         </div>
     )
 }

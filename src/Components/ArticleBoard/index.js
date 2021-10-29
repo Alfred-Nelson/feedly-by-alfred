@@ -1,9 +1,10 @@
 import React,{useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
-import { useSlugFetch } from '../constants/useSlug'
+import { useSlugFetch } from '../common/hooks/useSlug'
 import {Typography} from  "@bigbinary/neetoui/v2";
-import {lorem} from "../constants/lorem"
-import Line from "../helper/Line"
+import {lorem} from "../../constants/lorem"
+import { Redirect } from 'react-router';
+import Line from "../common/helper/Line"
 import NewsList from '../NewsBoard.js/NewsList';
 
 const ArticleBoard = () => {
@@ -21,6 +22,7 @@ const ArticleBoard = () => {
     }
     return (
         <div className="w-full flex flex-col items-center">
+            {Object.keys(article).length===0 ? <Redirect to="/no-page-found" />: null}
             <div className = "flex flex-col items-start">
                 <Typography style="h1">{article.title}</Typography>
                 <Typography style="body3" className ="mt-5 mb-10">

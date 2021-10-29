@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography } from "@bigbinary/neetoui/v2";
-import { useSlugExtract } from '../constants/useSlug';
+import { useSlugExtract } from '../common/hooks/useSlug';
 import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news , catagory}) => {
