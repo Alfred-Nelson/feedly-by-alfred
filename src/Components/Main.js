@@ -3,7 +3,6 @@ import {
             BrowserRouter as Router, 
             Switch,
             Route,
-            Redirect
         } from 'react-router-dom'
 import Container from './Container'
 import Feeds from './Feeds'
