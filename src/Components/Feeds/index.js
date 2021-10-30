@@ -53,6 +53,7 @@ const Feeds = () => {
                 .map((catagory) =><Tag 
                                     label={catagory} 
                                     style="large" 
+                                    key={catagory}
                                     onClose={()=>
                                         setState(prev => ({...prev, [catagory]:false}))
                                     } 

@@ -2,18 +2,18 @@ import React from 'react'
 import { Modal, Button } from "@bigbinary/neetoui/v2";
 
 
-const ModalCreate = (props) => {
+const ModalCreate = ({showModal , setShowModal, header, footer, body, size }) => {
     return (
         <div>
-            <Modal isOpen={props.showModal} onClose={() => props.setShowModal(false)} size="md">
+            <Modal isOpen={showModal} onClose={() => setShowModal(false)} size={size}>
                 <Modal.Header>
-                    { props.header }
+                    { header }
                 </Modal.Header>
                 <Modal.Body>
-                    { props.body }
+                    { body }
                 </Modal.Body>
                 <Modal.Footer className="space-x-2">
-                    { props.footer }
+                    { footer }
                 </Modal.Footer>
             </Modal>
         </div>

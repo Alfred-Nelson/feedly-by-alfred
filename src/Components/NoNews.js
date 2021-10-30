@@ -65,7 +65,8 @@ const NoNews = () => {
                 })}
             </div>
             
-            <ModalCreate 
+            <ModalCreate
+                size = "md"
                 showModal = {showModal}
                 header = { <NoNewsModalHeader  /> }
                 setShowModal = {setShowModal}

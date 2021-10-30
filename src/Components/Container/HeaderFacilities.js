@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Search, Notification, Filter } from "@bigbinary/neeto-icons";
 import { Button } from "@bigbinary/neetoui/v2";
+import ModalCreate from '../common/helper/ModalCreate';
+import NotificationModalHeader from '../utils/NotificationModalHeader';
+import NotificationModalBody from '../utils/NotificationModalBody';
+import NotificationModalFooter from '../utils/NotificationModalFooter';
 
 const HeaderFacilities = ({ setFilterPane }) => {
+    const [ showModal , setShowModal ] = useState(false)
+    const [ email , setEmail ] = useState("")
 
     const handleFilter = () => {
         setFilterPane(true)
@@ -14,11 +20,22 @@ const HeaderFacilities = ({ setFilterPane }) => {
                 size="large"
                 icon={()=><Search/>}
                 style="text"
+                tooltipProps ={{
+                    content : "Search",
+                    position : "bottom"
+                }}
              />
             <Button
                 size="large"
                 icon={()=><Notification/>}
                 style="text"
+                tooltipProps ={{
+                    content : "Subscribe",
+                    position : "top"
+                }}
+                onClick={
+                   () => setShowModal(true)
+                }
              />
             <Button
                 size="large"
@@ -27,6 +44,14 @@ const HeaderFacilities = ({ setFilterPane }) => {
                 icon={Filter}
                 onClick={handleFilter}
               />
+              <ModalCreate
+                        size ="xs"
+                        setShowModal={setShowModal}
+                        showModal = {showModal}
+                        header ={<NotificationModalHeader /> }
+                        body = { <NotificationModalBody email = {email } setEmail = {setEmail} /> }
+                        footer = { <NotificationModalFooter email = {email } setEmail = {setEmail} setShowModel = {setShowModal} /> }
+                />
         </div>
     )
 }
