@@ -8,6 +8,7 @@ import { CatagoryContext } from '../Main';
 import { Check } from "@bigbinary/neeto-icons";
 import { Link } from 'react-router-dom';
 import HeaderFacilities from './HeaderFacilities';
+import Line from '../common/helper/Line';
 
 
 
@@ -15,7 +16,7 @@ import HeaderFacilities from './HeaderFacilities';
 const Container = ({ children }) => {
 
     const [ showFilterPane, setFilterPane ] = useState(false)
-    const {state,setState} = useContext(CatagoryContext)
+    const {state,setState, archiveState, setArchiveState} = useContext(CatagoryContext)
     const [manageFilter, setManageFilter] = useState({})
 
     useEffect(() => {
@@ -55,6 +56,13 @@ const Container = ({ children }) => {
                                     }
                                      />
                         })}
+                        <Line />
+                        <Checkbox
+                            checked={archiveState}
+                            label="Include Archived News"
+                            className="my-8"
+                            onChange={() => setArchiveState(prev => !prev)}
+                        />
                     </Pane.Body>
                     <Pane.Footer className="flex items-center space-x-2">
                             <Link to="/">

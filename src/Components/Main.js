@@ -17,12 +17,12 @@ export const CatagoryContext = createContext()
 
 const Main = () => {
 
-    const [state,setState] =useCatagories()
+    const [state,setState,archiveState, setArchiveState] =useCatagories()
 
     return (
-        <CatagoryContext.Provider value={{ state,setState }}>
+        <CatagoryContext.Provider value={{ state, setState, archiveState, setArchiveState }}>
             <Router>
-            <Container>
+                <Container>
                     <Switch>
                             <Route exact path="/" component={Feeds} />
                             <Route exact path="/article/:catagory/:slug" 
