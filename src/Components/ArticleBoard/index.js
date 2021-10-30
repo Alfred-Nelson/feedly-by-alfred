@@ -1,7 +1,8 @@
 import React,{useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
+import { Copy } from "@bigbinary/neeto-icons";
 import { useSlugFetch } from '../common/hooks/useSlug'
-import {Typography} from  "@bigbinary/neetoui/v2";
+import {Typography , Button} from  "@bigbinary/neetoui/v2";
 import {lorem} from "../../constants/lorem"
 import { Redirect } from 'react-router';
 import Line from "../common/helper/Line"
@@ -25,6 +26,13 @@ const ArticleBoard = () => {
             {Object.keys(article).length===0 ? <Redirect to="/no-page-found" />: null}
             <div className = "flex flex-col items-start">
                 <Typography style="h1">{article.title}</Typography>
+                <div className="w-full flex justify-end">
+                    <Button
+                        style="secondary"
+                        icon ={() => <Copy />}
+                        onClick = { () => navigator.clipboard.writeText(article.readMoreUrl)}
+                    />
+                </div>
                 <Typography style="body3" className ="mt-5 mb-10">
                     { article.author } at { article.time } on { article.date }
                 </Typography>
