@@ -19,8 +19,9 @@ const mainCatagories = {
 const useCatagories = () => {
 
     const [state, setState] = useState( mainCatagories)
+    const [archiveState, setArchiveState] = useState(true)
 
-    return [state, setState]
+    return [state, setState, archiveState , setArchiveState]
 }
 
 export default useCatagories

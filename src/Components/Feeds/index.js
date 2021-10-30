@@ -5,16 +5,24 @@ import { CatagoryContext } from '../Main'
 import {Typography, Tag} from  "@bigbinary/neetoui/v2";
 import { Redirect } from 'react-router';
 import NewsBoard from '../NewsBoard.js'
+import { datefy } from '../../utils/datefy';
 
 const Feeds = () => {
 
     const [ news , setNews ] = useState([])
-    const { state, setState } = useContext(CatagoryContext)
+    const { state, setState, archiveState, setArchiveState} = useContext(CatagoryContext)
     const [loading , setLoading] = useState(true)
 
     const fetchDetails = async (catagory) => {
             const response = await getData(catagory)
-            const necessaryNews = response.data.data.slice(0,5)
+            const allNews = response.data.data
+            let necessaryNews
+            if(archiveState){
+                necessaryNews = allNews.slice(0,5)
+            }
+            else{
+                necessaryNews = datefy(allNews)
+            }
             setNews(prev => prev.concat({ catagory, data: necessaryNews }))
             setLoading(false)
     }

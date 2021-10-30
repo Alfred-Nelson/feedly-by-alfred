@@ -58,11 +58,13 @@ const NoNews = () => {
             <Button style="secondary" size="large" label="Write to us" onClick={() => setShowModal(true)}/>
             <Line />
             {loading? <Typography className="mt-20">Loading ...</Typography>: null}
+
             <div className="flex flex-row flex-wrap justify-between mt-10">
                 {list.map((item) => {
                     return <NewsList news={item.data} catagory={item.catagory} key={item.catagory} /> 
                 })}
             </div>
+            
             <ModalCreate 
                 showModal = {showModal}
                 header = { <NoNewsModalHeader  /> }
