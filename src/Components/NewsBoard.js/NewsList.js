@@ -8,7 +8,7 @@ const NewsList = ({ news , catagory}) => {
     const slug = useSlugExtract(news.url)
 
     return (
-        <div className="flex w-5/12 justify-between m-2 items-center font-light" >
+        <div className="flex m-2 lg:items-center font-light lg:w-5/12 lg:justify-between " >
             <img src={news.imageUrl} className="w-28 h-28 mr-3" />
             <div className="flex flex-col items-start box-content justify-around w-3/4 h-full" >
                 <Typography style="h4" className="text-left">{news.title}</Typography>

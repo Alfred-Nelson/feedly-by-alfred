@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const NewsCard = ({ news , catagory}) => {
     const slug = useSlugExtract(news.url)
     return (
-        <div className="w-full flex justify-between" >
+        <div className="w-full flex flex-col items-center lg:flex-row lg:justify-between " >
 
             <div className = "w-96 h-52 box-content bg-gray-100" >
                 <img src={ news.imageUrl } className="object-scale-down w-full h-full" />
