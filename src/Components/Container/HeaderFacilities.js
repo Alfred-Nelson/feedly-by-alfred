@@ -5,10 +5,12 @@ import ModalCreate from '../common/helper/ModalCreate';
 import NotificationModalHeader from '../utils/NotificationModalHeader';
 import NotificationModalBody from '../utils/NotificationModalBody';
 import NotificationModalFooter from '../utils/NotificationModalFooter';
+import SearchModal from '../common/helper/SearchModal';
 
 const HeaderFacilities = ({ setFilterPane }) => {
     const [ showModal , setShowModal ] = useState(false)
     const [ email , setEmail ] = useState("")
+    const [showSearchModal, setSearchModal] = useState(false)
 
     const handleFilter = () => {
         setFilterPane(true)
@@ -20,9 +22,10 @@ const HeaderFacilities = ({ setFilterPane }) => {
                 size="large"
                 icon={()=><Search/>}
                 style="text"
+                onClick={() => setSearchModal(true)}
                 tooltipProps ={{
                     content : "Search",
-                    position : "bottom"
+                    placement : "bottom"
                 }}
              />
             <Button
@@ -31,7 +34,7 @@ const HeaderFacilities = ({ setFilterPane }) => {
                 style="text"
                 tooltipProps ={{
                     content : "Subscribe",
-                    position : "top"
+                    placement : "bottom"
                 }}
                 onClick={
                    () => setShowModal(true)
@@ -44,14 +47,16 @@ const HeaderFacilities = ({ setFilterPane }) => {
                 icon={Filter}
                 onClick={handleFilter}
               />
-              <ModalCreate
-                        size ="xs"
-                        setShowModal={setShowModal}
-                        showModal = {showModal}
-                        header ={<NotificationModalHeader /> }
-                        body = { <NotificationModalBody email = {email } setEmail = {setEmail} /> }
-                        footer = { <NotificationModalFooter email = {email } setEmail = {setEmail} setShowModel = {setShowModal} /> }
-                />
+            <ModalCreate
+                    size ="xs"
+                    setShowModal={setShowModal}
+                    showModal = {showModal}
+                    header ={<NotificationModalHeader /> }
+                    body = { <NotificationModalBody email = {email } setEmail = {setEmail} /> }
+                    footer = { <NotificationModalFooter email = {email } setEmail = {setEmail} setShowModel = {setShowModal} /> }
+            />
+            <SearchModal showSearchModal ={showSearchModal} setSearchModal={setSearchModal} />
+            
         </div>
     )
 }
