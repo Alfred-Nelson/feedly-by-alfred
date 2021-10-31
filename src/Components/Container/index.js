@@ -30,13 +30,13 @@ const Container = ({ children }) => {
     },[showFilterPane])
 
     return (
-        <div>
+        <div className="flex flex-col items-center w-full">
             <Header
                 actionBlock={<HeaderFacilities setFilterPane = {setFilterPane} />}
                 title={<Link to="/">Feed.ly</Link>}
                 className = "border-b-2"
             />
-            <div className="my-20 mx-20 px-20 ">
+            <div className="my-20 mx-4 px-4 lg:mx-20 lg:px-20 ">
                 {children}
                 <Pane isOpen={showFilterPane} onClose={() => setFilterPane(false)}>
                     <Pane.Header>

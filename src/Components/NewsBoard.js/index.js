@@ -12,8 +12,8 @@ const NewsBoard = ({ news }) => {
     },[])
 
     return (
-        <div className="flex flex-col items-start mt-12">
-            <Typography style="h2" className="mb-10 mt-5">{capitalize(news.catagory)} News</Typography>
+        <div className="flex flex-col items-start mt-12 flex-wrap">
+            <Typography style="h2" className="mb-10 mt-5 ml-10 lg:ml-0">{capitalize(news.catagory)} News</Typography>
             {news.data.length > 0 ?
             (<div>
                 <NewsCard news = {news.data[0]} catagory={news.catagory}/>
