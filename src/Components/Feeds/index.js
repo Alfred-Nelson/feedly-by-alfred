@@ -48,7 +48,7 @@ const Feeds = () => {
     return (
         <div>
             {!Object.values(state).includes(true) ? <Redirect to="/no-news" /> : null}
-            <div className="flex justify-start">
+            <div className="flex justify-start flex-wrap">
             {!loading && Object.keys(state).filter((val)=> state[val])
                 .map((catagory) =><Tag 
                                     label={catagory} 
@@ -57,7 +57,7 @@ const Feeds = () => {
                                     onClose={()=>
                                         setState(prev => ({...prev, [catagory]:false}))
                                     } 
-                                    className="mx-5"
+                                    className="mx-5 mb-5 mt-5 md:mb-0"
                                     />)}
             </div>
             {news.map((eachCatagory) => {
