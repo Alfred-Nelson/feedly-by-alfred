@@ -33,7 +33,7 @@ const Container = ({ children }) => {
         <div>
             <Header
                 actionBlock={<HeaderFacilities setFilterPane = {setFilterPane} />}
-                title="Feed.ly"
+                title={<Link to="/">Feed.ly</Link>}
                 className = "border-b-2"
             />
             <div className="my-20 mx-20 px-20 ">
