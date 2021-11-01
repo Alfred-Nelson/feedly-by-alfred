@@ -37,13 +37,18 @@ const NoNews = () => {
                                 catagories[(random+4)%12],
                                 catagories[(random+5)%12],
                             ]
+        if(reducedList.includes("all")){
+            reducedList.splice(reducedList.indexOf("all"),1,catagories[(random+6)%12])
+        }
+        console.log(reducedList)
         reducedList.forEach((item) => {
             fetchNews(item)
         })
     }
 
     useEffect(() => {
-        const random = Math.floor(Math.random() * 25);
+        const random = Math.floor(Math.random() * (11) + 1) + 1;
+        console.log(random)
         fetchRandomNews(random)
     },[])
 
