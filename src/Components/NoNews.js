@@ -37,6 +37,9 @@ const NoNews = () => {
                                 catagories[(random+4)%12],
                                 catagories[(random+5)%12],
                             ]
+        if(reducedList.includes("all")){
+            reducedList.splice(reducedList.indexOf("all"),1,catagories[(random+6)%12])
+        }
         reducedList.forEach((item) => {
             fetchNews(item)
         })
