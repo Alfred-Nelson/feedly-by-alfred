@@ -53,3 +53,6 @@ In this challenge, you need to build a News Feeds Dashboard.
     - Deploy the application on Vercel. Post the link of the deployed application as a comment in the issue.
 7.  **Ready for code review**
     - As a final step post a comment in the issue saying " **@karthiknmenon** , **@mazahirharoon**, **@jagankaartik** The application is ready for the code review.**" and assign the issue to your collaborator.".
+
+
+webhook link - https://webhook.site/#!/3b662765-d23a-4beb-94cf-87ad608f0b90/f502cfab-dbe1-4108-9ba1-022c9cb360d5/1
