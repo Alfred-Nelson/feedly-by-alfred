@@ -30,7 +30,6 @@ const Feeds = () => {
     const fetchNews = () => {
         Object.keys(state).forEach((catagory) => {
             if(state[catagory] === true){
-                console.log("catagory = ",catagory)
                 fetchDetails(catagory)
             }
         })
