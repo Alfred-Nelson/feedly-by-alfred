@@ -47,10 +47,6 @@ const NoNews = () => {
         fetchRandomNews(random)
     },[])
 
-    useEffect(() => {
-        console.log(list)
-    },[list])
-
     return (
         <div className= "flex flex-col items-center">
             <img src={Frame} className="mb-8" />

@@ -63,9 +63,6 @@ const SearchModal = ({ showSearchModal, setSearchModal }) => {
        }
     }, [input, array])
 
-    useEffect(() => {
-        console.log("Array = ", array)
-    },[array])
 
 
     const handleValueChange = (e) => setInput(e.target.value)

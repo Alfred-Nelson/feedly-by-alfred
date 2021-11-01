@@ -5,6 +5,5 @@ export const datefy = (allNews) => {
                                                     day: 'numeric'
                                                 })
     const necessaryNews = allNews.filter((news) => news.date.slice(0,11) === today)
-    console.log("necessaryNews = ",  necessaryNews)
     return necessaryNews.slice(0,5)
 }

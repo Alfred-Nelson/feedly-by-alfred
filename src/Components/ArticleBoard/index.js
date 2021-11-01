@@ -14,10 +14,6 @@ const ArticleBoard = () => {
     const [article,changedList] = useSlugFetch(catagory, slug ,setLoading)
     const [random] = useState(Math.floor(Math.random() * (20 + 1) ))
 
-    useEffect(() => {
-        console.log(catagory, slug)
-    },[])
-
     if(loading) {
         return(<Typography style="body1">Loading...</Typography>)
     }
